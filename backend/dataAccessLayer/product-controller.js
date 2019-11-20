@@ -1,5 +1,5 @@
 
-const GetProducts = (request, response) => {
+/*const GetProducts = (request, response) => {
     try {
         let query = `SELECT TOP 10
                             P.product_id AS 'ProductId',
@@ -83,7 +83,32 @@ const GetProducts = (request, response) => {
         if (error != null) response.status(500).send({ error: error.message });
     }
 };
+*/
 
+const GetProducts = (request,response) =>{
+    try{
+        let query=`SELECT 
+        P.product_id AS 'ProductId',
+        P.name AS 'Name',
+        P.description AS 'Description',
+        P.price AS 'Price',
+        P.discounted_price AS 'DescountedPrice',
+        P.image AS 'PrimaryImage',
+        P.image_2 AS 'SecondaryImage',
+        P.thumbnail AS 'Thumbnail',
+        P.display AS 'Display'
+        from Product P`;
+        db.query(query,(err,result) => {
+            return response.json(result);
+        });
+    }
+    catch(err)
+    {
+        if (err != null) {
+            response.status(500).send({ error: err });
+        }
+    }
+}
 const GetProductAttributes = (request, response) => {
     try {
         let query = 'CALL catalog_get_attribute_values(1);CALL catalog_get_attribute_values(2)'
@@ -206,6 +231,8 @@ const GetFilteredProducts = (request, response) => {
     }
 };
 
+
+// http://localhost:8080/api/product/getProductDetails?productId=1
 const GetProductDetailsById = (request, response) => {
     try {
         let query = `SELECT 
@@ -217,27 +244,24 @@ const GetProductDetailsById = (request, response) => {
                         P.image AS 'PrimaryImage',
                         P.image_2 AS 'SecondaryImage',
                         P.thumbnail AS 'Thumbnail',
-                        P.display AS 'Display',
-                        C.category_id AS 'CategoryId',
-                        C.department_id AS 'DepartmentId',
-                        D.name AS 'DepartmentName',
-                        C.name AS 'CategoryName'
+                        P.display AS 'Display'
                     FROM 
                         product P, 
-                        category C, 
-                        department D, 
-                        product_category PC
-                    WHERE P.product_id = PC.product_id 
-                    AND C.category_id = PC.category_id
-                    AND C.department_id = D.department_id
-                    AND P.product_id = ${request.query.productId}`; // query database to get all the departments
+                        brand B
+                        where
+                        B.brand_id=P.brand_id and
+                        P.product_id = ${request.query.productId}`; // query database to get all the departments
 
         // execute query
         db.query(query ,(err, result) => {
-            if (err != null){
-                response.status(500).send({ error: err.message });
-            }
-            let productDetails = result[0];
+            return response.json(result)
+        });
+    }
+    catch(err)
+    {
+        return response.status(500).send({err:err.message});
+    }
+          /*  let productDetails = result[0];
             let subquery = `SELECT 
                             A.name AS 'AttributeName',
                             A.attribute_id AS 'AttributeId',
@@ -269,7 +293,7 @@ const GetProductDetailsById = (request, response) => {
         if (err != null) {
             response.status(500).send({ error: err });
         }
-    }
+    }*/
 };
 
 const product = {

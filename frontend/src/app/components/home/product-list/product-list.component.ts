@@ -53,7 +53,15 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+
   getProducts(){
+    window['NProgress'].start(); 
+    this.productService.getAllProductList().subscribe(a => {
+      this.productList = a as Product[];
+      window['NProgress'].done(); 
+    });
+  }
+  /*getProducts(){
     let filterObj: Paging = new Paging();
     filterObj.DepartmentId = 0;
     this.departmentName = 'All Departments';
@@ -70,7 +78,7 @@ export class ProductListComponent implements OnInit {
       this.PRODUCT_COUNT = productPagingObj.ProductCount[0].ProductCount;
       window['NProgress'].done(); 
     });
-  }
+  }*/
 
   goToPage(n: number): void {
     this.CURRENT_PAGE = n;

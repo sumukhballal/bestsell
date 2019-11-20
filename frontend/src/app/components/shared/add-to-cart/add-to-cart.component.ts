@@ -13,8 +13,8 @@ import { DataService } from 'src/app/services/Shared/data.service';
 export class AddToCartComponent implements OnInit {
 
   quantity: number;
-  @Input() sizeId: number;
-  @Input() colorId: number;
+  sizeId: number;
+  colorId: number;
   @Input() productId: number;
   @Input() isHomePage: boolean;
   messge: string;
@@ -24,6 +24,8 @@ export class AddToCartComponent implements OnInit {
 
   ngOnInit() {
     this.quantity = 1;
+    //this.sizeId=1;
+    //this.colorId=1;
     this.dataService.currentMessage.subscribe(msg => this.messge = msg);
   }
 
@@ -33,9 +35,8 @@ export class AddToCartComponent implements OnInit {
     .subscribe(p => {
       product = p as CartProduct;
       product.Quantity = this.quantity;
-      product.SizeId = this.sizeId;
-      product.ColorId = this.colorId;
       let cart: CartProduct[] = JSON.parse(localStorage.getItem('Cart'));
+      
       if(cart == null){
         cart = [];
         cart.push(product);
@@ -43,6 +44,7 @@ export class AddToCartComponent implements OnInit {
         let currentProduct = cart.filter(a => a.ProductId == product.ProductId);
         if(currentProduct.length > 0){
           cart.filter(a => {
+            a.Quantity=0;
             a.Quantity = a.Quantity + this.quantity;
           });
         } else{

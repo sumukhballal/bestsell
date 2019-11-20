@@ -4,7 +4,7 @@
   "description": "Turing Fullstack challange",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anjana Gihan Wijesooriya",
@@ -26,7 +26,7 @@
     "dotenv": "^8.0.0",
     "nodejs-nodemailer-outlook": "^1.1.0",
     "nodemailer": "^6.2.1",
-    "nodemon": "^1.19.1",
+    "nodemon": "^1.19.4",
     "sendmail": "^1.6.1"
   }
 }

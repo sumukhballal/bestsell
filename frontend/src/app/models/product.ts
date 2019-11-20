@@ -15,6 +15,6 @@ export class Product {
     Price: number;
     DescountedPrice: number;
     ProductCount: number;
-    Color: Attribute[];
-    Size: Attribute[];
+    //Color: Attribute[];
+    //Size: Attribute[];
 }

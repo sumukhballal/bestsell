@@ -14,8 +14,6 @@ export class ProductDetailsComponent implements OnInit {
 
   product: Product;
   productId: number;
-  sizeId: number;
-  colorId: number;
   constructor(private productService: ProductService,
               private route: ActivatedRoute) { 
                 this.product = new Product();
@@ -33,9 +31,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProductDetailsById(this.productId)
     .subscribe(p => {
       this.product = p as Product;
-      this.colorId = p.Color[0].AttributeValueId;
-      this.sizeId = p.Size[0].AttributeValueId;
-      console.log(this.product);
+      console.log(this.product)
     })
   }
 

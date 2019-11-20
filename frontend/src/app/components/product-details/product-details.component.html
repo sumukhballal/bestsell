@@ -7,13 +7,10 @@
         <div class="product-image">
           <div class="view hm-zoom z-depth-2" style="cursor: pointer">
             <div class="d-flex product-image pt-2">
-              <img [src]="'/assets/product_images/' + product.PrimaryImage" *ngIf="product.PrimaryImage"
-                class="img-fluid " [alt]="product.Name">
+              <img [src]="'/assets/productImages/' + product[0].PrimaryImage" *ngIf="product[0].PrimaryImage"
+                class="img-fluid " [alt]="product[0].Name">
             </div>
-            <div class="d-flex product-image pt-2 pb-2">
-              <img [src]="'/assets/product_images/' + product.SecondaryImage" *ngIf="product.SecondaryImage"
-                class="img-fluid " [alt]="product.Name">
-            </div>
+            
           </div>
           <div class="" style="margin-top:15px">
             <ul class="list-group mb-3">
@@ -21,7 +18,7 @@
                 <div>
                   <h6 class="my-0">Product Price</h6>
                 </div>
-                <span class="text-muted" style="color:crimson !important">${{product.Price}}</span>
+                <span class="text-muted" style="color:crimson !important">{{product[0].Price}}$</span>
               </li>
             </ul>
           </div>
@@ -34,11 +31,11 @@
             <tbody>
               <tr>
                 <th scope="row">Product Name</th>
-                <td>{{product.Name}}</td>
+                <td>{{product[0].Name}}</td>
               </tr>
               <tr>
                 <th scope="row">Product Description</th>
-                <td>{{product.Description}}</td>
+                <td>{{product[0].Description}}</td>
               </tr>
               <tr>
                 <th scope="row">Product Category</th>
@@ -52,31 +49,8 @@
                 </td>
               </tr>
               <tr>
-                <td>
-                  <strong class="d-flex">
-                    Color
-                  </strong>
-                  <select class="browser-default custom-select" *ngIf="product" style="width: 100px"
-                    [(ngModel)]="colorId">
-                    <option [value]="item.AttributeValueId" *ngFor="let item of product.Color"> {{item.AttributeValue}}
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <strong class="d-flex">
-                    Size
-                  </strong>
-                  <select class="browser-default custom-select" *ngIf="product" style="width: 100px"
-                    [(ngModel)]="sizeId">
-                    <option [value]="item.AttributeValueId" *ngFor="let item of product.Size">{{item.AttributeValue}}
-                    </option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
                 <td colspan="2">
-                  <app-add-to-cart class="d-flex" [productId]="product.ProductId" [colorId]="colorId" [sizeId]="sizeId"
-                    [isHomePage]="false"></app-add-to-cart>
+                  <app-add-to-cart class="d-flex" [productId]="product[0].ProductId" [isHomePage]="false"></app-add-to-cart>
                 </td>
               </tr>
             </tbody>

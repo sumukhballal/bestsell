@@ -3,11 +3,12 @@ const GetDepartments = (request, response) => {
     try {
         console.log(1)
         let query = `SELECT 
-                        A.department_id AS 'DepartmentId',
-                        A.name AS 'Name',
-                        A.description AS 'Description' 
-                    FROM department A 
-                    ORDER BY department_id ASC`; // query database to get all the departments
+                        B.brand_id AS 'BrandID',
+                        B.name AS 'Name',
+                        B.email AS 'Email',
+                        B.description AS 'Description' 
+                    FROM brand B 
+                    ORDER BY brand_id ASC`; // query database to get all the departments
 
         // execute query
         db.query(query, (err, result) => {

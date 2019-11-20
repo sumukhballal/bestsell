@@ -41,7 +41,7 @@ export class FiltersComponent implements OnInit {
         this.departmentList = a as Department[];
         let allDep: Department = new Department();
         allDep.DepartmentId = 0;
-        allDep.Name = 'All Departments';
+        allDep.Name = 'All Brands';
         this.departmentList.push(allDep);
         this.getCategoriesByDepartmentId();
       }
@@ -55,10 +55,10 @@ export class FiltersComponent implements OnInit {
   }
 
   getCategoriesByDepartmentId(){
-    this.filteredCategoryList = this.categoryList.filter(a => a.DepartmentId == this.selectedDepartment);
-    if(this.selectedDepartment == 0) {
+    //this.filteredCategoryList = this.categoryList.filter(a => a.DepartmentId == this.selectedDepartment);
+    //if(this.selectedDepartment == 0) {
       this.filteredCategoryList = this.categoryList;
-    }
+    //}
   }
 
   onSelectDepartment(department){
@@ -68,8 +68,8 @@ export class FiltersComponent implements OnInit {
     let filter: Paging = new Paging();
     filter.DepartmentId = this.selectedDepartment;
     filter.DepartmentName = this.departmentList.filter(a => a.DepartmentId == this.selectedDepartment)[0].Name;
-    filter.CategoryId = this.selectedCategory;
-    filter.CategoryName = (this.selectedCategory == 0)? '' : this.categoryList.filter(a => a.DepartmentId == this.selectedCategory)[0].Name;
+    //filter.CategoryId = this.selectedCategory;
+    //filter.CategoryName = (this.selectedCategory == 0)? '' : this.categoryList.filter(a => a.DepartmentId == this.selectedCategory)[0].Name;
     filter.SearchString = this.searchString;
     filter.IsAllWords = this.searchForAllWords;
     this.productList.setFilters(filter);

@@ -20,6 +20,10 @@ export class ProductService {
     return this.http.post<ProductPaginData>(`${this.url}product/getFilteredProducts`, { paging: paging });
   }
 
+  getAllProductList():Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.url}product/getProducts`);
+  }
+
   getProductDetailsById(productId: number):Observable<Product> {
     return this.http.get<Product>(`${this.url}product/getProductDetails?productId=${productId}`);
   }

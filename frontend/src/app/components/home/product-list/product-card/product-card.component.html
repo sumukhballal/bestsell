@@ -1,8 +1,8 @@
 <div class="product-grid grid">
   <div class="product-image">
     <a [routerLink]="['product-details', product.ProductId]">
-      <img class="pic-1" [src]="'/assets/product_images/' + product.PrimaryImage">
-      <img class="pic-2" [src]="'/assets/product_images/' + product.PrimaryImage">
+      <img class="pic-1" [src]="'/assets/productImages/' + product.PrimaryImage">
+      <img class="pic-2" [src]="'/assets/productImages/' + product.PrimaryImage">
     </a>
     <ul class="social">
       <li><a [routerLink]="['product-details', product.ProductId]" data-tip="Quick View"><i class="fa fa-eye"></i></a>
@@ -22,9 +22,9 @@
     <div class="price">
       {{product.Price}}
     </div>
-
+    <!--
     <div class="row">
-      <div class="col-md-6 py-1 px-1">
+     <div class="col-md-6 py-1 px-1">
         <strong>
           Size
         </strong>
@@ -32,7 +32,7 @@
           <option [value]="item.AttributeId" *ngFor="let item of product.Size">{{item.AttributeValue}}</option>
         </select>
 
-      </div>
+      </div> 
       <div class="col-md-6 py-1 px-1">
         <strong>
           Colour
@@ -41,9 +41,8 @@
           <option [value]="item.AttributeId" *ngFor="let item of product.Color">{{item.AttributeValue}}</option>
         </select>
       </div>
-    </div>
+    </div> -->
     <!-- <button class="add-to-cart" (click)="onAddProductToCart()">ADD TO CART</button> -->
-    <app-add-to-cart [productId]="product.ProductId" [colorId]="colorId" [sizeId]="sizeId" [isHomePage]="true">
-    </app-add-to-cart>
+    <app-add-to-cart [productId]="product.ProductId"  [isHomePage]="true"></app-add-to-cart>
   </div>
 </div>

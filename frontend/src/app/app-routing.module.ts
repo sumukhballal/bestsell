@@ -27,6 +27,11 @@ const routes: Routes = [
   },
   { path: 'cart/shopping-cart', component: ShoppingCartComponent},
   { path: 'order/order-confirmation', component: OrderConfirmationComponent},
+  { path: 'my-account',component:AccountComponent,data:{},
+    children: [
+      {path:'get-bill',component:AccountComponent,data:{title:'Bill Information'}}
+    ]
+  },
   { path: 'customer/my-account', component: AccountComponent},
   { path: 'customer/login', component: LoginComponent},
   { path: 'customer/register', component: RegisterComponent},

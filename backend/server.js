@@ -15,7 +15,7 @@ const port = process.env.PORT || 8080;
 const db_config = {
     host: 'localhost',
     user: 'root', // your database username
-    password: 'root', // your database password
+    password: 'sumukhballal', // your database password
     database: 'bestsell',  // FYI export the tshirtshop.sql to this database
     multipleStatements: true
 }
@@ -80,6 +80,7 @@ const productRoutes = require('./routes/product');
 const shippingRoutes = require('./routes/shipping');
 const customerRoutes = require('./routes/customer');
 const orderRoutes = require('./routes/order');
+const billingRoutes=require('./routes/billing');
 
 app.get('/', function (request, response, next) {
     db.query("SELECT * FROM category", function (error, rows) {
@@ -94,6 +95,7 @@ app.use('/api/product', productRoutes);
 app.use('/api/shipping', shippingRoutes);
 app.use('/api/customer', customerRoutes);
 app.use('/api/order', orderRoutes);
+app.use('/api/billing', billingRoutes);
 
 // set the app to listen on the port
 app.listen(port, () => {
