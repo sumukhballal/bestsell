@@ -4,7 +4,7 @@
         <tr *ngFor="let product of cart">
           <th scope="row" class="border-0">
             <div class="p-2">
-              <img [src]="'/assets/product_images/' + product.Thumbnail" alt="" width="70" class="img-fluid rounded shadow-sm">
+              <img [src]="'/assets/productImages/' + product.Thumbnail" alt="" width="70" class="img-fluid rounded shadow-sm">
               <div class="ml-3 d-inline-block align-middle">
                 <h5 class="mb-0"> 
                     <a href="#" class="text-dark d-inline-block align-middle">{{product.Name}}</a>
@@ -18,7 +18,7 @@
           </th>
           <td class="border-0 align-middle">
                 <var class="price">${{(product.Price * product.Quantity).toFixed(2)}}</var> 
-                <small class="text-muted"></small> 
+                <small class="text-muted">(${{product.Price.toFixed(2)}} each)</small> 
           </td>
           <td class="border-0 align-middle"><strong>{{product.Quantity}}</strong></td>
           <td class="border-0 align-middle"><a (click)="onRemoveProductsFromCart(product.ProductId)" class="text-dark"><i class="fa fa-trash"></i></a></td>

@@ -7,8 +7,8 @@
         <div class="product-image">
           <div class="view hm-zoom z-depth-2" style="cursor: pointer">
             <div class="d-flex product-image pt-2">
-              <img [src]="'/assets/productImages/' + product[0].PrimaryImage" *ngIf="product[0].PrimaryImage"
-                class="img-fluid " [alt]="product[0].Name">
+              <img [src]="'/assets/productImages/' + product.PrimaryImage" *ngIf="product.PrimaryImage"
+                class="img-fluid " [alt]="product.Name">
             </div>
             
           </div>
@@ -18,7 +18,7 @@
                 <div>
                   <h6 class="my-0">Product Price</h6>
                 </div>
-                <span class="text-muted" style="color:crimson !important">{{product[0].Price}}$</span>
+                <span class="text-muted" style="color:crimson !important">{{product.Price}}$</span>
               </li>
             </ul>
           </div>
@@ -31,11 +31,11 @@
             <tbody>
               <tr>
                 <th scope="row">Product Name</th>
-                <td>{{product[0].Name}}</td>
+                <td>{{product.Name}}</td>
               </tr>
               <tr>
                 <th scope="row">Product Description</th>
-                <td>{{product[0].Description}}</td>
+                <td>{{product.Description}}</td>
               </tr>
               <tr>
                 <th scope="row">Product Category</th>
@@ -50,7 +50,7 @@
               </tr>
               <tr>
                 <td colspan="2">
-                  <app-add-to-cart class="d-flex" [productId]="product[0].ProductId" [isHomePage]="false"></app-add-to-cart>
+                  <app-add-to-cart class="d-flex" [productId]="product.ProductId" [isHomePage]="false"></app-add-to-cart>
                 </td>
               </tr>
             </tbody>

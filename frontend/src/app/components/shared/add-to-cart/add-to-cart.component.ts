@@ -40,11 +40,10 @@ export class AddToCartComponent implements OnInit {
       if(cart == null){
         cart = [];
         cart.push(product);
-      } else{
+      } else{ 
         let currentProduct = cart.filter(a => a.ProductId == product.ProductId);
         if(currentProduct.length > 0){
           cart.filter(a => {
-            a.Quantity=0;
             a.Quantity = a.Quantity + this.quantity;
           });
         } else{

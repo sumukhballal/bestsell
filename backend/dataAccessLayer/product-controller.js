@@ -254,7 +254,7 @@ const GetProductDetailsById = (request, response) => {
 
         // execute query
         db.query(query ,(err, result) => {
-            return response.json(result)
+            return response.json(result[0])
         });
     }
     catch(err)
