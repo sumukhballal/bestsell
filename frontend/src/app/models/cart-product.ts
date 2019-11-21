@@ -3,7 +3,7 @@ import { Attribute } from './attribute';
 export class CartProduct {
     ProductId: number;
     CategoryId: number;
-    DepartmentId: number;
+    BrandID: number;
     DepartmentName: string;
     CategoryName: string;
     Name: string;

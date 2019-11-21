@@ -1,5 +1,6 @@
 export class Department {
-    DepartmentId:number;
+    //DepartmentId:number;
+    BrandID:number;
     Name:string;
     Description:string;
 }

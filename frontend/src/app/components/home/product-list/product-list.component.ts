@@ -43,12 +43,17 @@ export class ProductListComponent implements OnInit {
     this.categoryName = filters.CategoryName;
     this.searchString = filters.SearchString;
     this.allWords = filters.IsAllWords;
+    console.log(filters)
     window['NProgress'].start(); 
     let productPagingObj: ProductPaginData = new ProductPaginData();
+    let x: Product[]
+    //let productPagingObj: Product[] = new Product[];
     this.productService.getProductList(filters).subscribe(a => {
-      productPagingObj = a as ProductPaginData;
-      this.productList = productPagingObj.Products;
-      this.PRODUCT_COUNT = productPagingObj.ProductCount[0].ProductCount;
+      x = a as Product[]; //Does not get any data Debug
+      //productPagingObj=productPagingObj.Products;
+      this.productList = x;
+      //this.PRODUCT_COUNT = productPagingObj.ProductCount[0].ProductCount;
+      console.log(this.productList)
       window['NProgress'].done(); 
     });
   }

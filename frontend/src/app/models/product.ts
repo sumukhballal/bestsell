@@ -3,8 +3,9 @@ import { Attribute } from './attribute';
 export class Product {
     ProductId: number;
     CategoryId: number;
-    DepartmentId: number;
-    DepartmentName: string;
+    BrandID:number;
+    //DepartmentId: number;
+    //DepartmentName: string;
     CategoryName: string;
     Name: string;
     Description: string;

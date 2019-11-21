@@ -12,12 +12,12 @@ export class ProductService {
   url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
-  geProductByDepartmentId(paging: Paging): Observable<Product[]>{
+  getProductByDepartmentId(paging: Paging): Observable<Product[]>{
     return this.http.post<Product[]>(`${this.url}department/getDepartments`, paging);
   }
 
-  getProductList(paging: Paging): Observable<ProductPaginData> {
-    return this.http.post<ProductPaginData>(`${this.url}product/getFilteredProducts`, { paging: paging });
+  getProductList(paging: Paging): Observable<Product[]> {
+    return this.http.post<Product[]>(`${this.url}product/getFilteredProducts`, { paging: paging });
   }
 
   getAllProductList():Observable<Product[]>{
