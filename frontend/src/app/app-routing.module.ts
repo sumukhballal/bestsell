@@ -13,6 +13,7 @@ import { ReviewComponent } from './components/checkout/review/review.component';
 import { CustomerInfoComponent } from './components/checkout/customer-info/customer-info.component';
 import { PaymentInfoComponent } from './components/checkout/payment-info/payment-info.component';
 import { PaymentFinalComponent } from './components/checkout/payment-final/payment-final.component';
+import { BillComponent } from './components/account/bill/bill.component';
 
 
 const routes: Routes = [
@@ -27,12 +28,10 @@ const routes: Routes = [
   },
   { path: 'cart/shopping-cart', component: ShoppingCartComponent},
   { path: 'order/order-confirmation', component: OrderConfirmationComponent},
-  { path: 'my-account',component:AccountComponent,data:{},
-    children: [
-      {path:'get-bill',component:AccountComponent,data:{title:'Bill Information'}}
-    ]
-  },
-  { path: 'customer/my-account', component: AccountComponent},
+  { path: 'my-account',component:AccountComponent,data:{title:"Customer Account Information"}},
+  { path : 'customer/my-account/my-bills',component: BillComponent,data:{title:"Customer Bills"}},
+  { path: 'customer/my-account', component: AccountComponent,data:{title:"Customer Information"}},
+  { path : 'my-bills/:id',component: BillComponent,data:{title:"Customer Bills"}},
   { path: 'customer/login', component: LoginComponent},
   { path: 'customer/register', component: RegisterComponent},
   { path: 'checkout', component: CheckoutComponent, data: {title: 'Check out'},

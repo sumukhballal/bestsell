@@ -75,7 +75,9 @@ const AuthenticateLogin = (request, response) => {
                     A.credit_card AS 'CreditCard',
                     A.customer_id AS 'CustomerId',
                     A.mob_phone AS 'Mobile',
-                    A.name AS 'FullName',
+                    A.fname AS 'FullName',
+                    A.lname AS 'LastName',
+                    A.fname AS 'FirstName',
                     A.postal_code AS 'ZipCode',
                     A.shipping_region_id AS 'RegionId'
                     FROM  customer A

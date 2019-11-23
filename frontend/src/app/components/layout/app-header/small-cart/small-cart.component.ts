@@ -17,6 +17,7 @@ export class SmallCartComponent implements OnInit {
   }
 
   getCartProductItems(){
+    console.log(this.cart)
     this.cart = JSON.parse(localStorage.getItem('Cart'));
   }
 

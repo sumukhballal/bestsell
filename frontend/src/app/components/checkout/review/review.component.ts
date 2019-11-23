@@ -14,7 +14,8 @@ export class ReviewComponent implements OnInit {
     const products = JSON.parse(localStorage.getItem('Cart'));
     this.checkoutProducts = products;
     products.forEach((product) => {
-			this.totalPrice += product.Price;
+      console.log(product)
+			this.totalPrice += product.Price*product.Quantity;
 		});
   }
 

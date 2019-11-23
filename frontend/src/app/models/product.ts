@@ -4,6 +4,7 @@ export class Product {
     ProductId: number;
     CategoryId: number;
     BrandID:number;
+    BrandName:string;
     //DepartmentId: number;
     //DepartmentName: string;
     CategoryName: string;

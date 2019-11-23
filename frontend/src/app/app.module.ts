@@ -33,6 +33,7 @@ import { ReviewComponent } from './components/checkout/review/review.component';
 import { CustomerInfoComponent } from './components/checkout/customer-info/customer-info.component';
 import { PaymentInfoComponent } from './components/checkout/payment-info/payment-info.component';
 import { PaymentFinalComponent } from './components/checkout/payment-final/payment-final.component';
+import { BillComponent } from './components/account/bill/bill.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { PaymentFinalComponent } from './components/checkout/payment-final/payme
     ReviewComponent,
     CustomerInfoComponent,
     PaymentInfoComponent,
-    PaymentFinalComponent
+    PaymentFinalComponent,
+    BillComponent
   ],
   imports: [
     BrowserModule,

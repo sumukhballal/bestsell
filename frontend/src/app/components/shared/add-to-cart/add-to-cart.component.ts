@@ -24,8 +24,6 @@ export class AddToCartComponent implements OnInit {
 
   ngOnInit() {
     this.quantity = 1;
-    //this.sizeId=1;
-    //this.colorId=1;
     this.dataService.currentMessage.subscribe(msg => this.messge = msg);
   }
 
@@ -36,7 +34,6 @@ export class AddToCartComponent implements OnInit {
       product = p as CartProduct;
       product.Quantity = this.quantity;
       let cart: CartProduct[] = JSON.parse(localStorage.getItem('Cart'));
-      
       if(cart == null){
         cart = [];
         cart.push(product);

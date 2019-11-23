@@ -3,6 +3,9 @@ import { DataService } from 'src/app/services/Shared/data.service';
 import { Customer } from 'src/app/models/customer';
 import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/services/Customer/customer.service';
+import { TemperatureService } from '../../../services/Temperature/temperature.service';
+import { Temp } from 'src/app/models/temperature';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +16,11 @@ export class AppHeaderComponent implements OnInit {
    itemCount: number = 0;
   message: string;
   user: Customer;
+  Temperature: Temp;
+  example: Object;
   isLogged: boolean = false;
   constructor(private dataService: DataService,
-              private customerService: CustomerService,
+              private customerService: CustomerService, private temperatureService:TemperatureService ,
               private router: Router) { }
 
   ngOnInit() {
@@ -26,11 +31,26 @@ export class AppHeaderComponent implements OnInit {
       this.user = JSON.parse(localStorage.getItem('user'));
     }
     this.isLogged = this.user != null;
+    this.onCheckTemperature();
   }
 
+  onCheckTemperature()
+  {
+    this.temperatureService.getTempData().subscribe(
+      (data) => { this.example=data }, 
+      (err) => console.error(err),
+      () => console.log(this.example)
+      );
+  }
+
+  displayTemp(temp)
+  {
+    return Math.ceil(temp-273);
+  }
   onLogout(){
     this.customerService.Logout().subscribe(a => {
       localStorage.removeItem('user');
+      //localStorage.removeItem('Cart')
       this.user = (localStorage.getItem('user') == 'undefined') ? null : JSON.parse(localStorage.getItem('user'));
       this.isLogged = this.user != null;
       window.location.reload();

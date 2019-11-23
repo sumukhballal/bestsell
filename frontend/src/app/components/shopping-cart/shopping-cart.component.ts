@@ -20,6 +20,7 @@ export class ShoppingCartComponent implements OnInit {
 
   getCartProductItems(){
     this.cart = JSON.parse(localStorage.getItem('Cart'));
+    console.log(this.cart)
   }
 
   onRemoveProductsFromCart(productId: number){
@@ -35,6 +36,7 @@ export class ShoppingCartComponent implements OnInit {
       this.cart.forEach((element, index) => {
         if(element.ProductId == productId){
           this.cart[index].Quantity = element.Quantity + 1;
+          localStorage.setItem('Cart', JSON.stringify(this.cart));
         }
       });
     } else {

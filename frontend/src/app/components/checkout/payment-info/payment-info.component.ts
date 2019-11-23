@@ -9,16 +9,21 @@ import { CartProduct } from 'src/app/models/cart-product';
 export class PaymentInfoComponent implements OnInit {
 
   checkoutProducts: CartProduct[];
+  cart: CartProduct[];
   totalPrice: number = 0;
+  nonTaxedPrice: number =0;
   date: number;
-  tax = 6.4;
+  tax = 0.064;
   remark: string = '';
+  
   constructor() {
     const products = JSON.parse(localStorage.getItem('Cart'));
     this.checkoutProducts = products;
     products.forEach((product) => {
-			this.totalPrice += product.Price;
-		});
+			this.totalPrice += product.Price * product.Quantity;
+    });
+    this.nonTaxedPrice=this.totalPrice
+  this.totalPrice+=this.totalPrice*this.tax;
   }
 
   ngOnInit() {

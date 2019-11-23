@@ -12,7 +12,7 @@
             <span class="product-discount-label">-10%</span> -->
   </div>
   <div class="product-content">
-    <span class="product-shipping">{{product.DepartmentName}} - {{product.CategoryName}}</span>
+    <span class="product-shipping">{{product.BrandName}} - {{product.CategoryName}}</span>
     <h3 class="title">
       <a [routerLink]="['product-details', product.ProductId]"><strong>
           {{product.Name}}
@@ -20,7 +20,7 @@
       </a>
     </h3>
     <div class="price">
-      {{product.Price}}
+      {{product.Price}} $
     </div>
     <!--
     <div class="row">
@@ -43,6 +43,6 @@
       </div>
     </div> -->
     <!-- <button class="add-to-cart" (click)="onAddProductToCart()">ADD TO CART</button> -->
-    <app-add-to-cart [productId]="product.ProductId"  [isHomePage]="true"></app-add-to-cart>
+    <app-add-to-cart [productId]="product.ProductId"   [isHomePage]="true"></app-add-to-cart>
   </div>
 </div>

@@ -4,6 +4,7 @@ export class CartProduct {
     ProductId: number;
     CategoryId: number;
     BrandID: number;
+    BrandName:string;
     DepartmentName: string;
     CategoryName: string;
     Name: string;
@@ -15,9 +16,10 @@ export class CartProduct {
     Price: number;
     DescountedPrice: number;
     ProductCount: number;
-    Color: Attribute[];
-    Size: Attribute[];
+    TotalPrice:number;
+    //Color: Attribute[];
+    //Size: Attribute[];
     Quantity: number;
-    SizeId: number;
-    ColorId: number;
+    //SizeId: number;
+    //ColorId: number;
 }

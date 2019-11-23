@@ -39,12 +39,11 @@ export class FiltersComponent implements OnInit {
     this.departmentService.getDepartments().subscribe(
       a => {
         this.departmentList = a as Department[];
-        //let allDep: Department = new Department();
-        //allDep.BrandID = 0;
-        console.log(a)
-        //allDep.Name = 'All Brands';
-        //this.departmentList.push(allDep);
-       // this.getCategoriesByDepartmentId();
+        let allDep: Department = new Department();
+        allDep.BrandID = 0;
+        allDep.Name = 'All Brands';
+        this.departmentList.push(allDep);
+        //this.getCategoriesByDepartmentId();
       }
     );
   }
@@ -52,14 +51,12 @@ export class FiltersComponent implements OnInit {
   getCategoryList(){
     this.categoryService.getCategories().subscribe(a => {
       this.categoryList = a as Category[];
-
       this.filteredCategoryList=this.categoryList;
     })
   }
 
   onSelectDepartment(department){
     this.selectedDepartment = department.BrandID;
-    console.log(this.selectedDepartment);
     this.selectedCategory = 0;
    // this.getCategoriesByDepartmentId();
     let filter: Paging = new Paging();
@@ -74,7 +71,6 @@ export class FiltersComponent implements OnInit {
 
   onSelectCategory(category){
     this.selectedCategory = category.CategoryId;
-    console.log(this.selectedCategory);
     let filter: Paging = new Paging();
     filter.BrandID = this.selectedDepartment;
     filter.DepartmentName = this.departmentList.filter(a => a.BrandID == this.selectedDepartment)[0].Name;

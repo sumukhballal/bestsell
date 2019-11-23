@@ -90,6 +90,10 @@ const GetProducts = (request,response) =>{
         let query=`SELECT 
         P.product_id AS 'ProductId',
         P.name AS 'Name',
+        C.category_id as 'CategoryId',
+        C.name as 'CategoryName',
+        B.brand_id as 'BrandID',
+        B.name as 'BrandName',
         P.description AS 'Description',
         P.price AS 'Price',
         P.discounted_price AS 'DescountedPrice',
@@ -97,7 +101,10 @@ const GetProducts = (request,response) =>{
         P.image_2 AS 'SecondaryImage',
         P.thumbnail AS 'Thumbnail',
         P.display AS 'Display'
-        from Product P`;
+        from Product P,Product_Category PC, Category C, Brand B
+        WHERE P.product_id = PC.product_id 
+        AND C.category_id = PC.category_id
+        AND P.brand_id=B.brand_id`;
         db.query(query,(err,result) => {
             return response.json(result);
         });
@@ -260,6 +267,7 @@ const GetFilteredProducts = (request, response) => {
                         P.description AS 'Description',
                         P.price AS 'Price',
                         P.discounted_price AS 'DescountedPrice',
+                        B.name as 'BrandName',
                         P.image AS 'PrimaryImage',
                         P.image_2 AS 'SecondaryImage',
                         P.thumbnail AS 'Thumbnail',
@@ -355,6 +363,8 @@ const GetProductDetailsById = (request, response) => {
         let query = `SELECT 
                         P.product_id AS 'ProductId',
                         P.name AS 'Name',
+                        B.name AS 'BrandName',
+                        C.name AS 'CategoryName',
                         P.description AS 'Description',
                         P.price AS 'Price',
                         P.discounted_price AS 'DescountedPrice',
@@ -364,9 +374,12 @@ const GetProductDetailsById = (request, response) => {
                         P.display AS 'Display'
                     FROM 
                         product P, 
-                        brand B
+                        brand B,
+                        product_category PC,
+                        category C
                         where
                         B.brand_id=P.brand_id and
+                        PC.product_id=P.product_id and
                         P.product_id = ${request.query.productId}`; // query database to get all the departments
 
         // execute query

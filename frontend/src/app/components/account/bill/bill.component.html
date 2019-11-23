@@ -1,0 +1,23 @@
+<div>
+    <div >
+        <h2>My Bills - {{user.FirstName}} {{user.LastName}}</h2>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Order ID</th>
+                <th> Total Amount</th>
+                <th>Date Ordered</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of bill">
+                <td>{{b.OrderId}}</td>
+                <td>{{b.TotalAmount}} $</td>
+                <td>{{b.DateString}}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>

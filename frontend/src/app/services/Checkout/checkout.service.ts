@@ -10,6 +10,11 @@ export class CheckoutService {
   url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
 
+  createOrderTransaction(orderDetail:OrderDetail)
+  {
+    return this.http.post<any>(`${this.url}order/submitOrder`, orderDetail);
+  }
+
   CreatePaypalTransacton(orderDetail: OrderDetail){
     return this.http.post<any>(`${this.url}order/submitOrder`, orderDetail);
   }
