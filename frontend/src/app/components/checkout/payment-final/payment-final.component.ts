@@ -15,7 +15,7 @@ export class PaymentFinalComponent implements OnInit {
 
   customerInfor: Customer = new Customer();
   cart: CartProduct[];
-  orderDetail:OrderDetail;
+  orderDetail:JSON;
   paymentType: String[]
   constructor( private checkoutService: CheckoutService,private router:Router) { } 
 
@@ -24,16 +24,18 @@ export class PaymentFinalComponent implements OnInit {
     this.customerInfor = JSON.parse(localStorage.getItem('user'));
     this.cart=JSON.parse(localStorage.getItem('Cart'))
     this.paymentType=['Credit Card','Debit Card','Paypal']
+    this.orderDetail=JSON.parse(localStorage.getItem('OrderDetail'))
   }
 
   onPayment()
   {
     this.checkoutService.createOrderTransaction(this.orderDetail).subscribe(
       (data) => {
-          this.router.navigate(['/products'])
+          //this.router.navigate(['/products'])
       },
-      (error) => console.log("Payment did not go through")
-    );
+      (error) => console.log("Payment did not go through"),
+      () => { console.log("Payment went through. Congrats ")}
+      );
   }
 
 

@@ -5,8 +5,8 @@
                 <img [src]="'/assets/productImages/' + product.Thumbnail" [alt]="product.Name" height="100">
             </div>
             <div style="padding: 10px" class="pl-5">
-                <h6 class=" my-0"><strong>{{product.Name}}</strong> <strong class="float-right">{{product.Quantity}}</strong></h6>
-                <p class="m-0">{{product.Description}}</p>
+                <h6 class=" my-0"><strong>{{product.Name}}</strong></h6>
+                <p class="m-0">Quantity : {{product.Quantity}}</p>
                 <strong class="">
                     <div class="price">
                         ${{product.Price}}

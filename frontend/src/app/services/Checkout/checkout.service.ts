@@ -9,8 +9,8 @@ export class CheckoutService {
 
   url = localStorage.getItem('ServerUrl');
   constructor(private http: HttpClient) { }
-
-  createOrderTransaction(orderDetail:OrderDetail)
+  //orderDetail = localStorage.getItem('OrderDetail')
+  createOrderTransaction(orderDetail)
   {
     return this.http.post<any>(`${this.url}order/submitOrder`, orderDetail);
   }

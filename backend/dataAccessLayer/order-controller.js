@@ -1,29 +1,23 @@
 const nodemailer = require('nodemailer');
-
+/*
 const CreateOrder = (request, response) => {
     try {
 
         const user = request.body.User;
         const cart = request.body.Cart;
-        const remark = request.body.Remarks;
-        const totalAmount = request.body.TotalAmount;
+        const remark = request.body.Remark;
+        const totalAmount = request.body.totalAmount;
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'ajdarkslayer@gmail.com',
-                pass: 'Anjana@123'
+                user: 'sumukhballal@gmail.com',
+                pass: 'Sumukh.20261578'
             }
-            // host: 'smtp.ethereal.email',
-            // port: 587,
-            // auth: {
-            //     user: 'rebeka.dietrich54@ethereal.email',
-            //     pass: 'eUN3GvKdfRgFseD4X8'
-            // }
         });
 
         let mailOptions = {
-            from: 'ajdarkslayer@gmail.com',
+            from: 'sumukhballal@gmail.com',
             to: `${user.Email}`,
             subject: "Congratulations! Your order placed succesfully.", // Subject line
             text: `Hello ${user.Name}`, // plain text body
@@ -31,11 +25,11 @@ const CreateOrder = (request, response) => {
         }
         // send mail with defined transport object
         transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error);
-                return response.json(error);
-            } else {
-                console.log('Email sent: ' + info.response);
+           // if (error) {
+           //     console.log(error);
+           //     return response.json(error);
+           //} else {
+               // console.log('Email sent: ' + info.response);
 
                 let query = `INSERT INTO orders
                                 (total_amount, created_on, shipped_on, status, comments, customer_id, auth_code, reference, shipping_id, tax_id)
@@ -81,7 +75,7 @@ const CreateOrder = (request, response) => {
 
                     return response.json(result);
                 });
-            }
+           // }
         });
 
 
@@ -89,7 +83,45 @@ const CreateOrder = (request, response) => {
         if (error != null) response.status(500).send({ error: error.message });
     }
 };
+*/
 
+
+const CreateOrder = (request, response) => {
+    try {
+
+        const user = request.body.User;
+        const cart = request.body.Cart;
+        const remark = request.body.Remark;
+        const totalAmount = request.body.totalPrice;
+        
+        
+        let query = `INSERT INTO orders
+                                (total_amount, created_on, shipped_on, status, comments, customer_id, auth_code, reference, shipping_id,tax_id)
+                            VALUES
+                            (
+                                ${totalAmount}, 
+                                CURDATE(), 
+                                CURDATE(), 
+                                1, 
+                                '${remark}', 
+                                ${user.CustomerId}, 
+                                '', 
+                                '', 
+                                8,
+                                1
+                            );`;
+
+                // execute query
+                db.query(query, (error, result) => {
+                    if (error != null) response.status(500).send({ error: error.message });
+
+                    return response.json(result);
+                });
+        }
+         catch (error) {
+        if (error != null) response.status(500).send({ error: error.message });
+    }
+};
 const SendTestMail = async ()=> {
     let remark = 'test mail';
 
@@ -103,15 +135,6 @@ const SendTestMail = async ()=> {
                 pass: 'Anjana@123' 
             }
     });
-
-    // const transporter = nodemailer.createTransport({
-    //     // service: 'gmail',
-    //     // auth: {
-    //     //     user: 'ajdarkslayer@gmail.com',
-    //     //     pass: '*****'
-    //     // }
-    // });
-
     let mailOptions = {
         from: '"Dark Slayer 👻" <no-reply@dark.com>',
         to: 'ajgihan@gmail.com',

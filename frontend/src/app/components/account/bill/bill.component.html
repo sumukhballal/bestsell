@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let b of bill">
-                <td>{{b.OrderId}}</td>
+                <td><a [routerLink]="['/customer/my-account/order-details']">{{b.OrderId}}</a></td>
                 <td>{{b.TotalAmount}} $</td>
                 <td>{{b.DateString}}</td>
             </tr>
