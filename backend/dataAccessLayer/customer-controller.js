@@ -22,20 +22,19 @@ const RegisterCustomer = (request, response) => {
                 .createUserWithEmailAndPassword(params.Email, params.Password)
                 .then(function(res){
                     let query = `INSERT INTO customer
-                    (address_1, address_2, city, country, credit_card, day_phone, email, eve_phone, mob_phone, name, password, postal_code, region, shipping_region_id)
+                    (address_1, address_2, city, country, day_phone, email, eve_phone, mob_phone, fname,lname, postal_code, region, shipping_region_id)
                     values
                     (
                         '${params.AddressOne}', 
                         '${params.AddressTwo}', 
                         '${params.Town}', 
-                        '${params.Country}', 
-                        '${params.CreditCard}', 
+                        '${params.Country}',  
                         '', 
                         '${params.Email}', 
                         '', 
                         '${params.Mobile}', 
-                        '${params.FirstName}', 
-                        '', 
+                        '${params.FirstName}',
+                        '${params.LastName}',
                         '${params.ZipCode}', 
                         '',
                         ${params.RegionId});`; // query database to get all the  Shipping Regions
@@ -67,12 +66,10 @@ const AuthenticateLogin = (request, response) => {
             .then((res) => {
                 let query = `SELECT 
                     A.email AS 'Email',
-                    A.password AS 'Password',
                     A.address_1 AS 'AddressOne',
                     A.address_2 AS 'AddressTwo',
                     A.city AS 'Town',
                     A.country AS 'Country',
-                    A.credit_card AS 'CreditCard',
                     A.customer_id AS 'CustomerId',
                     A.mob_phone AS 'Mobile',
                     A.fname AS 'FullName',

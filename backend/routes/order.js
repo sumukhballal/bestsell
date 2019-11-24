@@ -5,6 +5,5 @@ const { CreateOrder, SendTestMail } = require('../dataAccessLayer/order-controll
 
 //get all departments
 router.post('/submitOrder', CreateOrder);
-router.get('/sendTestMail', SendTestMail);
 
 module.exports = router;

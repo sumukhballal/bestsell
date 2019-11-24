@@ -113,7 +113,27 @@ const CreateOrder = (request, response) => {
 
                 // execute query
                 db.query(query, (error, result) => {
-                    if (error != null) response.status(500).send({ error: error.message });
+                    //if (error != null) response.status(500).send({ error: error.message });
+                    let values = [];
+                    cart.forEach(element => {
+                        let row = '';
+                        row = `(
+                            ${result.insertId},
+                            ${element.ProductId},
+                            ${element.Quantity}
+                        )`;
+                        values.push(row);
+                    });
+                    let rows = values.toString();
+
+                    let subQuery = `INSERT INTO order_detail
+                                        (order_id, product_id, quantity)
+                                    values ${rows};`; //query database to get all the departments
+
+                    db.query(subQuery, (error, res) => {
+                       // if (error != null) response.status(500).send({ error: error.message });
+                       // return response.json(res);
+                    });
 
                     return response.json(result);
                 });
@@ -122,40 +142,9 @@ const CreateOrder = (request, response) => {
         if (error != null) response.status(500).send({ error: error.message });
     }
 };
-const SendTestMail = async ()=> {
-    let remark = 'test mail';
-
-    let testAccount = await nodemailer.createTestAccount();
-
-     // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-        service: 'gmail',
-            auth: {
-                user: 'ajdarkslayer@gmail.com',
-                pass: 'Anjana@123' 
-            }
-    });
-    let mailOptions = {
-        from: '"Dark Slayer 👻" <no-reply@dark.com>',
-        to: 'ajgihan@gmail.com',
-        subject: "Order Details", // Subject line
-        text: "test purpose", // plain text body
-        html: `<b>test account ${remark} </b>`
-    }
-
-    await transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(error);
-            return response.json(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
-};
 
 const order = {
-    CreateOrder,
-    SendTestMail
+    CreateOrder
 };
 
 module.exports = order;
