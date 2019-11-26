@@ -15,6 +15,7 @@ import { PaymentInfoComponent } from './components/checkout/payment-info/payment
 import { PaymentFinalComponent } from './components/checkout/payment-final/payment-final.component';
 import { BillComponent } from './components/account/bill/bill.component';
 import { OrderDetailComponent } from './components/account/orderdetail/orderdetail.component';
+import { CardDetailComponent } from './components/account/carddetail/carddetail.component';
 
 
 const routes: Routes = [
@@ -30,8 +31,9 @@ const routes: Routes = [
   { path: 'cart/shopping-cart', component: ShoppingCartComponent},
   { path: 'order/order-confirmation', component: OrderConfirmationComponent},
   { path: 'my-account',component:AccountComponent,data:{title:"Customer Account Information"}},
-  { path : 'customer/my-account/my-bills',component: BillComponent,data:{title:"Customer Bills"}},
+  { path : 'customer/my-account/my-orders',component: BillComponent,data:{title:"Customer Orders"}},
   { path: 'customer/my-account/order-details',component:OrderDetailComponent,data:{title:"Get Order Details"}},
+  { path: 'customer/my-account/my-cards',component:CardDetailComponent,data:{title:"Get Card Details"}},
   { path: 'customer/my-account', component: AccountComponent,data:{title:"Customer Information"}},
   { path : 'my-bills/:id',component: BillComponent,data:{title:"Customer Bills"}},
   { path: 'customer/login', component: LoginComponent},

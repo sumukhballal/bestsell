@@ -6,7 +6,8 @@ const {
     GetProducts,
     GetProductAttributes,
     GetFilteredProducts,
-    GetProductDetailsById
+    GetProductDetailsById,
+    GetProductByOrderId
  } = require('../dataAccessLayer/product-controller');
 
 //get all Product
@@ -20,6 +21,10 @@ router.post('/getFilteredProducts', GetFilteredProducts);
 
 // get product details by product id
 router.get('/getProductDetails', GetProductDetailsById)
+
+router.get('/getProductDetailsForOrder',GetProductByOrderId)
+
+// get product details by order id
 
 
 module.exports = router;

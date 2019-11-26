@@ -1,0 +1,25 @@
+<div>
+    <div >
+        <h2>My Cards - {{user.FirstName}} {{user.LastName}} <a [routerLink]="['/']" class="btn btn-outline-info btn-md float-right">Continue shopping</a></h2>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Card ID</th>
+                <th>Card Number</th>
+                <th>Expiry Month/Year</th>
+                <th>CVV</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cd of cardDetail">
+                <td>{{cd.cardId}}</td>
+                <td>{{cd.cardNumber}}</td>
+                <td>{{cd.expiryMonth}}/{{cd.expiryYear}}</td>
+                <td>{{cd.cvv}}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>

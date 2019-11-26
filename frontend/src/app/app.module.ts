@@ -35,6 +35,7 @@ import { PaymentInfoComponent } from './components/checkout/payment-info/payment
 import { PaymentFinalComponent } from './components/checkout/payment-final/payment-final.component';
 import { BillComponent } from './components/account/bill/bill.component';
 import { OrderDetailComponent } from './components/account/orderdetail/orderdetail.component';
+import { CardDetailComponent } from './components/account/carddetail/carddetail.component'; 
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { OrderDetailComponent } from './components/account/orderdetail/orderdeta
     PaymentInfoComponent,
     PaymentFinalComponent,
     BillComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    CardDetailComponent
   ],
   imports: [
     BrowserModule,

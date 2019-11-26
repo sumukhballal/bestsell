@@ -96,22 +96,19 @@ const CreateOrder = (request, response) => {
         
         
         let query = `INSERT INTO orders
-                                (total_amount, created_on, shipped_on, status, comments, customer_id, auth_code, reference, shipping_id,tax_id)
+                                (total_amount, created_on, status, comments, customer_id)
                             VALUES
                             (
                                 ${totalAmount}, 
-                                CURDATE(), 
-                                CURDATE(), 
+                                CURDATE(),
                                 1, 
                                 '${remark}', 
-                                ${user.CustomerId}, 
-                                '', 
-                                '', 
-                                8,
-                                1
+                                ${user.CustomerId}
                             );`;
 
                 // execute query
+
+
                 db.query(query, (error, result) => {
                     //if (error != null) response.status(500).send({ error: error.message });
                     let values = [];

@@ -390,47 +390,45 @@ const GetProductDetailsById = (request, response) => {
     catch(err)
     {
         return response.status(500).send({err:err.message});
-    }
-          /*  let productDetails = result[0];
-            let subquery = `SELECT 
-                            A.name AS 'AttributeName',
-                            A.attribute_id AS 'AttributeId',
-                            AV.attribute_value_id AS 'AttributeValueId',
-                            AV.value AS 'AttributeValue',
-                            PA.product_id AS 'ProductId'
-                        FROM attribute_value AV
-                        INNER JOIN attribute A
-                                ON AV.attribute_id = A.attribute_id
-                        INNER JOIN product_attribute PA
-                                ON PA.attribute_value_id = AV.attribute_value_id
-                        WHERE PA.product_id = ${request.query.productId}
-                        ORDER BY A.name`;
-
-            // execute query
-            db.query(subquery, (err, results) => {
-                if (err != null){
-                    response.status(500).send({ error: err.message });
-                }
-
-                productDetails['Size'] = results.filter(a => a.AttributeId == 1).sort(function(a, b){return a.AttributeValueId - b.AttributeValueId});
-                productDetails['Color'] = results.filter(a => a.AttributeId == 2).sort(function(a, b){return a.AttributeValueId - b.AttributeValueId});
-
-                return response.json(productDetails);
-            });
-
-       });
-    } catch (err) {
-        if (err != null) {
-            response.status(500).send({ error: err });
-        }
-    }*/
 };
+}
+
+//http://localhost:8080/api/product/getProductDetailsForOrder?customerID=1&orderID=8
+const GetProductByOrderId = (request,response) => {
+try{
+    let query=`select o.order_id as "OrderID",
+    p.product_id as"ProductID",
+    p.name as "ProductName",
+    od.quantity as "Quantity",
+    p.price as "Price",
+    b.name as "BrandName",
+    c.name  as "CategoryName"
+    from product p,product_category pc,orders o,order_detail od,brand b,category c 
+    where o.order_id=od.order_id 
+    and p.product_id=od.product_id 
+    and b.brand_id=p.brand_id 
+    and c.category_id=pc.category_id 
+    and pc.product_id=p.product_id 
+    and o.customer_id=${request.query.customerID} and o.order_id=${request.query.orderID};`
+
+    db.query(query,(error,result) => {
+        if(error!=null) return response.status(500).send({error: error.message})
+
+        return response.json(result)
+    })
+}
+catch(error)
+{
+if(error!=null) response.status(500).send({error: error.message})
+}
+}
 
 const product = {
     GetProducts,
     GetProductAttributes,
     GetFilteredProducts,
-    GetProductDetailsById
+    GetProductDetailsById,
+    GetProductByOrderId
 };
 
 module.exports = product;
