@@ -1,12 +1,13 @@
 <div>
     <div >
-        <h2>My Cards - {{user.FirstName}} {{user.LastName}} <a [routerLink]="['/']" class="btn btn-outline-info btn-md float-right">Continue shopping</a></h2>
+        <h2>My Cards - {{user.FirstName}} {{user.LastName}} <a [routerLink]="['/']" class="btn btn-outline-info btn-md float-right mt-3">Continue shopping</a></h2>
     </div>
     <div>
         <table class="table table-striped">
             <thead class="thead-dark">
             <tr>
                 <th>Card ID</th>
+                <th>Card Name</th>
                 <th>Card Number</th>
                 <th>Expiry Month/Year</th>
                 <th>CVV</th>
@@ -15,11 +16,15 @@
         <tbody>
             <tr *ngFor="let cd of cardDetail">
                 <td>{{cd.cardId}}</td>
-                <td>{{cd.cardNumber}}</td>
+                <td>{{cd.cardName}}</td>
+                <td>{{cardNumberEnc(cd.cardNumber)}}</td>
                 <td>{{cd.expiryMonth}}/{{cd.expiryYear}}</td>
                 <td>{{cd.cvv}}</td>
             </tr>
         </tbody>
         </table>
+        <div>
+            <a class="btn btn-success " [routerLink]="['/customer/add-card']">Add Card?</a>
+        </div>
     </div>
 </div>

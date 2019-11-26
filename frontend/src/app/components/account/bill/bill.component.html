@@ -9,6 +9,7 @@
                 <th>Order ID</th>
                 <th> Total Amount</th>
                 <th>Date Ordered</th>
+                <th>Purchased At</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +17,7 @@
                 <td><a [routerLink]="['/customer/my-account/order-details']">{{b.OrderId}}</a></td>
                 <td>{{b.TotalAmount}} $</td>
                 <td>{{b.DateString}}</td>
+                <td>{{b.StoreName}}</td>
             </tr>
         </tbody>
         </table>

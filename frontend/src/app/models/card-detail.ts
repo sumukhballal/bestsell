@@ -6,4 +6,5 @@ export class CardDetail
     expiryYear: number;
     cvv: number;
     customerId: number;
+    cardName: string;
 }

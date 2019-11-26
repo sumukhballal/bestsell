@@ -4,9 +4,10 @@ const GetBills = (request,response) => {
         let query = `SELECT order_id as 'OrderId',
                     customer_id as 'CustomerId',
                     total_amount as 'TotalAmount',
+                    s.name as 'StoreName',
                     created_on as 'Date'
-                    from Orders O 
-                    where O.customer_id=${request.query.customerID}`; // query database to get all the departments
+                    from Orders O, store s
+                    where O.store_id=s.store_id and O.customer_id=${request.query.customerID}`; // query database to get all the departments
 
         // execute query
         db.query(query, (err, result) => {

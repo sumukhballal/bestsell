@@ -25,7 +25,14 @@ export class CardDetailComponent{
         this.cardDetailService.getCardDetails(this.user.CustomerId).subscribe(
             c => {
                 this.cardDetail=c;
-            }
+                this.cardDetail.forEach(element => element.cardName="Sumukh's Credit Card");
+
+                }
         )
+    }
+
+    cardNumberEnc(cardNumber : string)
+    {
+        return "****-****-****-"+cardNumber.substring(12)
     }
 }
