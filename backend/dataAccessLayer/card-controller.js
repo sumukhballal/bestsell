@@ -4,6 +4,7 @@ try{
     let customerId=request.query.customerID;
 let query=`select card_id as 'cardId',
         card_number as 'cardNumber',
+        card_name as 'cardName',
         expiry_month as 'expiryMonth',
         expiry_year as 'expiryYear',
         cvv as 'cvv'

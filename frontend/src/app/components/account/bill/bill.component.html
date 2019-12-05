@@ -10,6 +10,7 @@
                 <th> Total Amount</th>
                 <th>Date Ordered</th>
                 <th>Purchased At</th>
+                <th>Status</th>
                 <!--<th></th>-->
             </tr>
         </thead>
@@ -19,6 +20,7 @@
                 <td>{{b.TotalAmount}} $</td>
                 <td>{{b.DateString}}</td>
                 <td>{{b.StoreName}}</td>
+                <td>{{b.OrderStatusString}}</td>
                <!-- <td><a class='btn btn-primary stretched-link' [routerLink]="['/customer/my-account/order-details/',b.OrderId]">Go to Order?</a></td>-->
             </tr>
         </tbody>

@@ -402,7 +402,8 @@ try{
     od.quantity as "Quantity",
     p.price as "Price",
     b.name as "BrandName",
-    c.name  as "CategoryName"
+    c.name  as "CategoryName",
+    o.status as "OrderStatus"
     from product p,product_category pc,orders o,order_detail od,brand b,category c 
     where o.order_id=od.order_id 
     and p.product_id=od.product_id 

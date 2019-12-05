@@ -18,6 +18,8 @@ import { OrderDetailComponent } from './components/account/orderdetail/orderdeta
 import { CardDetailComponent } from './components/account/carddetail/carddetail.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { EditCustomerComponent } from './components/account/edit/editinfo.component';
+import { OrderFailureComponent } from './components/order-confirmation/order-failure/order-failure.component';
+import { StoreComponent } from './components/admin/stores/store.component';
 
 
 const routes: Routes = [
@@ -39,8 +41,10 @@ const routes: Routes = [
   { path: 'customer/my-account/my-cards',component:CardDetailComponent,data:{title:"Get Card Details"}},
   { path: 'customer/my-account', component: AccountComponent,data:{title:"Customer Information"}},
   { path: 'customer/login', component: LoginComponent},
-  { path: 'admin/adminTasks',component:AdminComponent},
+  { path: 'admin/adminTasks',component:AdminComponent},  
+  { path: 'admin/stores',component: StoreComponent},
   { path: 'customer/register', component: RegisterComponent},
+  { path: 'order/order-failure',component: OrderFailureComponent},
   { path: 'checkout', component: CheckoutComponent, data: {title: 'Check out'},
     children: [
       { path: 'review',  component: ReviewComponent,  data: {title: 'Order Review'} },

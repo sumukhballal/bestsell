@@ -18,7 +18,6 @@ export class BillComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
     this.onSelectBill(this.user.CustomerId); 
-    console.log(this.user)
   }
 
   onSelectBill(user)
@@ -26,7 +25,21 @@ export class BillComponent implements OnInit {
     this.billService.getBill(user).subscribe(
       b =>
       {
-        b.forEach(element => element.DateString=element.Date.toString().substring(0,10))
+        b.forEach(element => {
+          element.DateString=element.Date.toString().substring(0,10)
+          if(element.OrderStatus==0)
+          {
+            element.OrderStatusString="In Transit"
+          }
+          else if(element.StoreId==2)
+          {
+            element.OrderStatusString="Fulfilled In Store"
+          }
+          else
+          {
+            element.OrderStatusString="Delivered"
+          }
+        });
         this.bill=b as Bill[];
       }
     )

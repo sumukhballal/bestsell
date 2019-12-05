@@ -82,6 +82,7 @@ const customerRoutes = require('./routes/customer');
 const orderRoutes = require('./routes/order');
 const billingRoutes=require('./routes/billing');
 const cardRoutes=require('./routes/card');
+const storeRoutes=require('./routes/store')
 
 app.get('/', function (request, response, next) {
     db.query("SELECT * FROM category", function (error, rows) {
@@ -98,6 +99,7 @@ app.use('/api/customer', customerRoutes);
 app.use('/api/order', orderRoutes);
 app.use('/api/billing', billingRoutes);
 app.use('/api/card', cardRoutes);
+app.use('/api/store',storeRoutes)
 
 // set the app to listen on the port
 app.listen(port, () => {

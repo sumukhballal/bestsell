@@ -69,8 +69,8 @@
             <span class="clearfix d-none d-sm-inline-block"> Cart </span>
           </a>
           <app-small-cart class="dropdown-menu dropdown-cart mr-5 pb-0" *ngIf="itemCount != 0"></app-small-cart>
-          <li>
-              <a class="nav-link stores">Stores</a>
+          <li *ngIf="isAdmin">
+              <a class="nav-link stores" [routerLink]="['/admin/stores']">Stores</a>
           </li>
           <li *ngIf="isAdmin">
             <a class="nav-link" [routerLink]="['/admin/adminTasks']">Admin</a>

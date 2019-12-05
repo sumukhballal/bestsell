@@ -6,4 +6,5 @@ export class OrderDetail {
     Cart: CartProduct[];
     Remarks: string;
     TotalAmount: number;
+    Card: string;
 }

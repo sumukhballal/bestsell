@@ -101,7 +101,7 @@ const CreateOrder = (request, response) => {
                             (
                                 ${totalAmount}, 
                                 CURDATE(),
-                                1, 
+                                0, 
                                 '${remark}', 
                                 ${user.CustomerId},
                                 1

@@ -32,40 +32,38 @@
                 <div class="col-md-5 mb-3">
                     <label for="country">Country</label>
                     <input type="text" class="form-control" id="" placeholder="Country"
-                        [(ngModel)]="customerInfor.Country" name="address2" readonly>
+                        [(ngModel)]="customerInfor.Country" name="country" readonly>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="state">State</label>
+                    <label for="state">City</label>
                     <input type="text" class="form-control" id="" placeholder="City or Town"
-                        [(ngModel)]="customerInfor.Town" name="address2" readonly>
+                        [(ngModel)]="customerInfor.Town" name="state" readonly>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="zip">Zip</label>
                     <input type="text" class="form-control" id="" placeholder="ZipCode"
-                        [(ngModel)]="customerInfor.ZipCode" name="address2" readonly>
+                        [(ngModel)]="customerInfor.ZipCode" name="zip" readonly>
                 </div>
-                <div class="row">
-                    <div class="col-md-5">
+            </div>
+                    <div>
                         <select class="form-control" required>
                             <option *ngFor="let pt of paymentType">{{pt}}</option>
                         </select>
                     </div>
-                <div class="">
+                <div *ngIf="example" class="">
                 <label for="cname" >Name on Card</label>
                 <input type="text" required="required"  required="required"  pattern="[A-Za-z]" id="cname" name="cardname" placeholder="John More Doe">
                 <label for="ccnum">Credit card number</label>
                 <input type="text" required="required"  id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
                 <label for="expmonth">Exp Month</label>
                 <input type="text"  required="required" id="expmonth" name="expmonth" placeholder="September"> 
-            </div>
-        </div>
-        </div>
+                </div>
             <hr class="mb-4">
 
         </form>
     </div>
     <div class="float-center">
-            <a class="btn btn-success " (click)=onPayment() [routerLink]="['/order/order-confirmation']"
+            <a class="btn btn-success " (click)=onPayment()
                 >Pay</a>
         </div>
 </div>  

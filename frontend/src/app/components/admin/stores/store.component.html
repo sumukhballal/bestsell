@@ -1,0 +1,23 @@
+<div>
+        <a [routerLink]="['/']" class="btn btn-outline-info btn-md float-right">Continue shopping</a>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Store ID</th>
+                <th> Store Name</th>
+                <th>Store Address</th>
+                <th>Store City</th>
+                <!--<th></th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of stores">
+                <td>{{s.StoreId}}</td>
+                <td>{{s.StoreName}}</td>
+                <td>{{s.StoreAddress}}</td>
+                <td>{{s.StoreCity}}</td>
+               <!-- <td><a class='btn btn-primary stretched-link' [routerLink]="['/customer/my-account/order-details/',b.OrderId]">Go to Order?</a></td>-->
+            </tr>
+        </tbody>
+        </table>
+    </div>

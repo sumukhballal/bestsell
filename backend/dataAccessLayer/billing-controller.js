@@ -5,7 +5,9 @@ const GetBills = (request,response) => {
                     customer_id as 'CustomerId',
                     total_amount as 'TotalAmount',
                     s.name as 'StoreName',
-                    created_on as 'Date'
+                    created_on as 'Date',
+                    O.status as 'OrderStatus',
+                    O.store_id as 'StoreId'
                     from Orders O, store s
                     where O.store_id=s.store_id and O.customer_id=${request.query.customerID}`; // query database to get all the departments
 

@@ -24,7 +24,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { SmallCartComponent } from './components/layout/app-header/small-cart/small-cart.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { PaypalCheckoutComponent } from './components/checkout/payment-info/paypal-checkout/paypal-checkout.component';
+//import { PaypalCheckoutComponent } from './components/checkout/payment-info/paypal-checkout/paypal-checkout.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { AccountComponent } from './components/account/account.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -38,6 +38,8 @@ import { OrderDetailComponent } from './components/account/orderdetail/orderdeta
 import { CardDetailComponent } from './components/account/carddetail/carddetail.component'; 
 import { AdminComponent } from './components/admin/admin.component';
 import { EditCustomerComponent } from './components/account/edit/editinfo.component';
+import { OrderFailureComponent } from './components/order-confirmation/order-failure/order-failure.component';
+import { StoreComponent } from './components/admin/stores/store.component';
 
 
 @NgModule({
@@ -56,7 +58,6 @@ import { EditCustomerComponent } from './components/account/edit/editinfo.compon
     SmallCartComponent,
     LoginComponent,
     RegisterComponent,
-    PaypalCheckoutComponent,
     OrderConfirmationComponent,
     AccountComponent,
     CheckoutComponent,
@@ -69,7 +70,9 @@ import { EditCustomerComponent } from './components/account/edit/editinfo.compon
     OrderDetailComponent,
     CardDetailComponent,
     AdminComponent,
-    EditCustomerComponent
+    EditCustomerComponent,
+    OrderFailureComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,

@@ -5,4 +5,7 @@ export class Bill {
     Date: Date;
     DateString: String;
     StoreName: String;
+    OrderStatus: number;
+    OrderStatusString:string;
+    StoreId: number;
 }
