@@ -36,6 +36,8 @@ import { PaymentFinalComponent } from './components/checkout/payment-final/payme
 import { BillComponent } from './components/account/bill/bill.component';
 import { OrderDetailComponent } from './components/account/orderdetail/orderdetail.component';
 import { CardDetailComponent } from './components/account/carddetail/carddetail.component'; 
+import { AdminComponent } from './components/admin/admin.component';
+import { EditCustomerComponent } from './components/account/edit/editinfo.component';
 
 
 @NgModule({
@@ -65,7 +67,9 @@ import { CardDetailComponent } from './components/account/carddetail/carddetail.
     PaymentFinalComponent,
     BillComponent,
     OrderDetailComponent,
-    CardDetailComponent
+    CardDetailComponent,
+    AdminComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,

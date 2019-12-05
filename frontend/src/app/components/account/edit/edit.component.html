@@ -1,0 +1,81 @@
+<section class="register-block">
+    <div class="container">
+            
+        <div class="row register-sec">
+            <div class="col-md-12 register-sec pb-0 pt-0">
+                    <h2 class="text-center">Edit Now</h2>
+            </div>
+            <form class="register-form col-md-12" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group">
+                            <label for="AddressOne" class="text-uppercase">Address Line 1</label>
+                            <input type="text" class="form-control" 
+                            formControlName="AddressOne" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.AddressOne.errors }" >
+
+                            <div *ngIf="submitted && f.AddressOne.errors" class="invalid-feedback">
+                                <div *ngIf="f.AddressOne.errors.required">Address is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="AddressTwo" class="text-uppercase">Address Line 2</label>
+                                <input type="text" class="form-control" 
+                                formControlName="AddressTwo" 
+                                class="form-control" 
+                                [ngClass]="{ 'is-invalid': submitted && f.AddressTwo.errors }">
+                            </div>
+                        <div class="form-group">
+                            <label for="Town" class="text-uppercase">Town</label>
+                            <input type="text" class="form-control" 
+                            formControlName="Town" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.Town.errors }" >
+
+                             <div *ngIf="submitted && f.Town.errors" class="invalid-feedback">
+                                <div *ngIf="f.Town.errors.required">Town Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Mobile" class="text-uppercase">Mobile</label>
+                            <input type="text" class="form-control" 
+                            formControlName="Mobile" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.Mobile.errors }" >
+
+                            <div *ngIf="submitted && f.Mobile.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Mobile.errors.required">First Name is required</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Country" class="text-uppercase">Country</label>
+                            <input type="text" class="form-control" 
+                            formControlName="Country" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.Country.errors }" >
+
+                            <div *ngIf="submitted && f.Country.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Country.errors.required">Country is required</div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ZipCode" class="text-uppercase">Zip Code</label>
+                            <input type="text" class="form-control" 
+                            formControlName="ZipCode" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.ZipCode.errors }" >
+
+                            <div *ngIf="submitted && f.ZipCode.errors" class="invalid-feedback">
+                                    <div *ngIf="f.ZipCode.errors.required">Zip Code  is required</div>
+                                </div>
+                        </div>
+                        <div class="form-check">
+                            <button type="submit" class="btn btn-register float-right">Update</button>
+                        </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</section>

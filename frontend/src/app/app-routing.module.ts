@@ -16,6 +16,8 @@ import { PaymentFinalComponent } from './components/checkout/payment-final/payme
 import { BillComponent } from './components/account/bill/bill.component';
 import { OrderDetailComponent } from './components/account/orderdetail/orderdetail.component';
 import { CardDetailComponent } from './components/account/carddetail/carddetail.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { EditCustomerComponent } from './components/account/edit/editinfo.component';
 
 
 const routes: Routes = [
@@ -32,11 +34,12 @@ const routes: Routes = [
   { path: 'order/order-confirmation', component: OrderConfirmationComponent},
   { path: 'my-account',component:AccountComponent,data:{title:"Customer Account Information"}},
   { path : 'customer/my-account/my-orders',component: BillComponent,data:{title:"Customer Orders"}},
-  { path: 'customer/my-account/order-details',component:OrderDetailComponent,data:{title:"Get Order Details"}},
+  { path: 'customer/my-account/order-details/:id',component:OrderDetailComponent,data:{title:"Get Order Details"}},
+  { path : 'customer/edit-info',component:EditCustomerComponent,data:{title:"Edit Customer Information"}},
   { path: 'customer/my-account/my-cards',component:CardDetailComponent,data:{title:"Get Card Details"}},
   { path: 'customer/my-account', component: AccountComponent,data:{title:"Customer Information"}},
-  { path : 'my-bills/:id',component: BillComponent,data:{title:"Customer Bills"}},
   { path: 'customer/login', component: LoginComponent},
+  { path: 'admin/adminTasks',component:AdminComponent},
   { path: 'customer/register', component: RegisterComponent},
   { path: 'checkout', component: CheckoutComponent, data: {title: 'Check out'},
     children: [

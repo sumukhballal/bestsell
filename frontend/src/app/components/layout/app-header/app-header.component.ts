@@ -19,6 +19,7 @@ export class AppHeaderComponent implements OnInit {
   Temperature: Temp;
   example: Object;
   isLogged: boolean = false;
+  isAdmin : boolean = false;
   constructor(private dataService: DataService,
               private customerService: CustomerService, private temperatureService:TemperatureService ,
               private router: Router) { }
@@ -29,6 +30,8 @@ export class AppHeaderComponent implements OnInit {
       this.user = null;
     } else {
       this.user = JSON.parse(localStorage.getItem('user'));
+      if(this.user.CustomerId==1)
+        this.isAdmin=true;
     }
     this.isLogged = this.user != null;
     this.onCheckTemperature();

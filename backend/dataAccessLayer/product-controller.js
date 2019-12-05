@@ -397,7 +397,7 @@ const GetProductDetailsById = (request, response) => {
 const GetProductByOrderId = (request,response) => {
 try{
     let query=`select o.order_id as "OrderID",
-    p.product_id as"ProductID",
+    p.product_id as"ProductId",
     p.name as "ProductName",
     od.quantity as "Quantity",
     p.price as "Price",

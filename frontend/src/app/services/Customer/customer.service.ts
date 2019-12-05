@@ -19,6 +19,11 @@ export class CustomerService {
     return this.http.post<Customer>(`${this.url}customer/authenticateLogin`, {Username: username, Password: password});
   }
 
+  EditCustomer(customer : Customer): Observable<boolean> 
+  {
+      return this.http.post<boolean>(`${this.url}customer/updateCustomer`,customer)
+  }
+
   Logout(){
     let result = this.http.get(`${this.url}customer/logout`);
     return result;

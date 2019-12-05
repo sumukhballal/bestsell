@@ -6,7 +6,8 @@ import { element } from 'protractor';
 
 @Component({
   selector: 'bill-account',
-  templateUrl: './bill.component.html'
+  templateUrl: './bill.component.html',
+  styleUrls: ['./bill.component.scss']
 })
 export class BillComponent implements OnInit {
 

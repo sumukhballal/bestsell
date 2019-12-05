@@ -1,5 +1,29 @@
 <div>
     <h2>
-        My Orders Details
+        Order Details for order number ::  # {{orderId}} <a [routerLink]="['/']" class="btn btn-outline-info btn-md float-right">Continue shopping</a>
     </h2>
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Product Name</th>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <!--<th></th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td><a class="nav nav-link" [routerLink]="['/products/product-details/',p.ProductId]">{{p.BrandName}} {{p.ProductName}}</a></td>
+                <td>{{p.CategoryName}}</td>
+                <td>{{p.Quantity}}</td>
+                <td>{{p.Price}}</td>
+               <!-- <td><a class='btn btn-primary stretched-link' [routerLink]="['/customer/my-account/order-details/',b.OrderId]">Go to Order?</a></td>-->
+            </tr>
+        </tbody>
+        </table>
+        <div>
+        </div>
+    </div>
 </div>

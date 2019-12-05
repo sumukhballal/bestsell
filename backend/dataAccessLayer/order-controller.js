@@ -96,14 +96,15 @@ const CreateOrder = (request, response) => {
         
         
         let query = `INSERT INTO orders
-                                (total_amount, created_on, status, comments, customer_id)
+                                (total_amount, created_on, status, comments, customer_id,store_id)
                             VALUES
                             (
                                 ${totalAmount}, 
                                 CURDATE(),
                                 1, 
                                 '${remark}', 
-                                ${user.CustomerId}
+                                ${user.CustomerId},
+                                1
                             );`;
 
                 // execute query

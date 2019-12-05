@@ -109,9 +109,39 @@ const SignInRegular = (email, password) => {
     return firebase.auth().signInWithEmailAndPassword(email, password);
 }
 
+
+const UpdateCustomer = (request,response) =>
+{
+    let params = request.body;
+    console.log(params.AddressOne)
+try {
+    let query=`update customer c
+    set c.address_1="${params.AddressOne}", 
+    c.address_2="${params.AddressTwo}",
+    c.city="${params.Town}",
+    c.postal_code="${params.ZipCode}",
+    c.country="${params.Country}",
+    c.mob_phone="${params.Mobile}"    
+    where c.customer_id=${params.CustomerId};`
+
+    console.log(query)
+    db.query(query,(err,result) => {
+        if(err!=null) response.status(500).send({ error: err.message });
+
+        return response.json(result)
+    })
+}
+catch(err)
+{
+    if(err!=null) 
+    response.status(500).send({ error: err.message });
+}
+}
+
 const customer = {
     RegisterCustomer,
     AuthenticateLogin,
+    UpdateCustomer,
     Logout
 };
 

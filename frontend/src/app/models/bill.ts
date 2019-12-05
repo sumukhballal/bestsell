@@ -4,4 +4,5 @@ export class Bill {
     OrderId: number;
     Date: Date;
     DateString: String;
+    StoreName: String;
 }

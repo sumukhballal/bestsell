@@ -11,7 +11,6 @@ export class Customer {
     Region: string;
     ZipCode: string;
     Mobile: number;
-    CreditCard: number;
     Email: string;
     Password: string;
 }

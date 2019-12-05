@@ -72,6 +72,9 @@
           <li>
               <a class="nav-link stores">Stores</a>
           </li>
+          <li *ngIf="isAdmin">
+            <a class="nav-link" [routerLink]="['/admin/adminTasks']">Admin</a>
+        </li>
       </ul>
     </div>
 
