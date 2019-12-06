@@ -7,4 +7,6 @@ export class CardDetail
     cvv: number;
     customerId: number;
     cardName: string;
+    creditUsed: number;
+    creditLimit: number;
 }

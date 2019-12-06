@@ -40,6 +40,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { EditCustomerComponent } from './components/account/edit/editinfo.component';
 import { OrderFailureComponent } from './components/order-confirmation/order-failure/order-failure.component';
 import { StoreComponent } from './components/admin/stores/store.component';
+import { InventoryComponent } from './components/admin/inventory/inventory.component';
+import { ReorderComponent } from './components/admin/reorder/reorder.component';
 
 
 @NgModule({
@@ -72,7 +74,9 @@ import { StoreComponent } from './components/admin/stores/store.component';
     AdminComponent,
     EditCustomerComponent,
     OrderFailureComponent,
-    StoreComponent
+    StoreComponent,
+    InventoryComponent,
+    ReorderComponent
   ],
   imports: [
     BrowserModule,

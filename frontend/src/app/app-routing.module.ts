@@ -20,6 +20,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { EditCustomerComponent } from './components/account/edit/editinfo.component';
 import { OrderFailureComponent } from './components/order-confirmation/order-failure/order-failure.component';
 import { StoreComponent } from './components/admin/stores/store.component';
+import { InventoryComponent } from './components/admin/inventory/inventory.component';
+import { ReorderComponent } from './components/admin/reorder/reorder.component';
 
 
 const routes: Routes = [
@@ -43,7 +45,9 @@ const routes: Routes = [
   { path: 'customer/login', component: LoginComponent},
   { path: 'admin/adminTasks',component:AdminComponent},  
   { path: 'admin/stores',component: StoreComponent},
-  { path: 'customer/register', component: RegisterComponent},
+  { path: 'admin/stores/:id',component: InventoryComponent },
+  { path: 'admin/reorder',component: ReorderComponent },
+  { path: 'customer/register', component: RegisterComponent}, 
   { path: 'order/order-failure',component: OrderFailureComponent},
   { path: 'checkout', component: CheckoutComponent, data: {title: 'Check out'},
     children: [

@@ -1,0 +1,25 @@
+<form class="register-form col-md-12" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div>            
+        <div class="form-group">
+                    <label for="ZipCode" class="text-uppercase">Reorder Product ID</label>
+                    <input type="text" class="form-control" 
+                    formControlName="ZipCode" 
+                    class="form-control">
+        </div>
+        <div class="form-group">
+                <label for="ZipCode" class="text-uppercase">Quantity to Be Reordered?</label>
+                <input type="text" class="form-control" 
+                formControlName="ZipCode" 
+                class="form-control">
+    </div>
+    <div class="form-group">
+            <label for="ZipCode" class="text-uppercase">Store for Reorder?</label>
+            <input type="text" class="form-control" 
+            formControlName="ZipCode" 
+            class="form-control">
+</div>
+                <div class="form-check">
+                    <button type="submit" class="btn btn-register float-right">Reorder</button>
+                </div>
+        </div>
+    </form>

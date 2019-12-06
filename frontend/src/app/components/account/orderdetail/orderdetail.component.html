@@ -23,11 +23,21 @@
             </tr>
         </tbody>
         </table>
-        <div>
-            <p class="lead">Products in Transit</p>
-        </div>
-        <div>
-            <p>View Your Tracking Information : Tracking Number :: #9865342 </p>
+        <div class="card">
+                <div class="card-body">
+                            <div>
+                                <p class="lead"> ------- Tracking Information ---------</p>
+                            </div>
+                            <div>
+                                <ul *ngFor="let s of shipping">
+                                    <li><p>Tracking Number :: #{{s.ShippingId}} </p></li>
+                                    <li>Shipping Type :: {{s.ShippingType}}</li>
+                                    <li>Shipped With :: {{s.ShipperName}}</li>
+                                    <li>Estimated Delivery Date :: {{s.DeliveryDate}}</li>
+                                    <li>Order Status :: {{s.DeliveryStatusString}}</li>
+                                </ul>
+                            </div>
+                </div>
         </div>
     </div>
 </div>

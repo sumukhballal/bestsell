@@ -7,7 +7,9 @@ let query=`select card_id as 'cardId',
         card_name as 'cardName',
         expiry_month as 'expiryMonth',
         expiry_year as 'expiryYear',
-        cvv as 'cvv'
+        cvv as 'cvv',
+        credit_used as 'creditUsed',
+        credit_limit as 'creditLimit'
         from card_details 
         where customer_id=${customerId}`
 

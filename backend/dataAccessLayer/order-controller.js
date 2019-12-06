@@ -123,6 +123,10 @@ const CreateOrder = (request, response) => {
                         values.push(row);
                     });
                     let rows = values.toString();
+                    let shippingQuery = `INSERT INTO shipping(shipping_type_id,delivery_date,shipper_id,order_id,status) 
+                    values(8,"2019/12/9",1,${result.insertId},0)`
+
+                    db.query(shippingQuery,(error,res) => {})
 
                     let subQuery = `INSERT INTO order_detail
                                         (order_id, product_id, quantity)

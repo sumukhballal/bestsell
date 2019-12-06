@@ -1,7 +1,6 @@
 
 const GetDepartments = (request, response) => {
     try {
-        console.log(1)
         let query = `SELECT 
                         B.brand_id AS 'BrandID',
                         B.name AS 'Name',

@@ -45,18 +45,20 @@
                         [(ngModel)]="customerInfor.ZipCode" name="zip" readonly>
                 </div>
             </div>
-                    <div>
-                        <select class="form-control" required>
+                    <div *ngIf="!newUser">
+                        <select id="selectPayment" class="form-control" required>
                             <option *ngFor="let pt of paymentType">{{pt}}</option>
                         </select>
+                        <a class='btn btn-primary' (click)=checkCredit()>Check Credit</a>
                     </div>
-                <div *ngIf="example" class="">
+                <div *ngIf="newUser" class="">
                 <label for="cname" >Name on Card</label>
                 <input type="text" required="required"  required="required"  pattern="[A-Za-z]" id="cname" name="cardname" placeholder="John More Doe">
                 <label for="ccnum">Credit card number</label>
                 <input type="text" required="required"  id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
                 <label for="expmonth">Exp Month</label>
                 <input type="text"  required="required" id="expmonth" name="expmonth" placeholder="September"> 
+                <a class="btn btn-success " (click)=onCardAdd()></a>
                 </div>
             <hr class="mb-4">
 
